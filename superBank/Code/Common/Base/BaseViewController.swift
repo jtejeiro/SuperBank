@@ -9,9 +9,18 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func ShowAlert(title:String,message:String){
@@ -21,5 +30,7 @@ class BaseViewController: UIViewController {
 
         self.present(alert, animated: true)
     }
+    
+    
     
 }

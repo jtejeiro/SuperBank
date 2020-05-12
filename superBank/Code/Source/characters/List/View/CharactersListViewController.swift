@@ -17,7 +17,9 @@ class CharactersListViewController: BaseViewController {
     var presenter: CharactersListPresenter?
     
     // MARK: - Outlets
-    @IBOutlet private var tableView:UITableView!;
+    @IBOutlet private var tableView:UITableView!
+    @IBOutlet private var ordenByNameButton:UIButton!
+    @IBOutlet private var ordenByModifiedButton:UIButton!
     
     // MARK: Private
     private var viewModel:CharactersListViewModel!
@@ -27,7 +29,6 @@ class CharactersListViewController: BaseViewController {
     
     //MARK: - View Life Cycle Methods.
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
         setupInit()
@@ -51,6 +52,16 @@ class CharactersListViewController: BaseViewController {
     }
     
     // MARK: IBActions
+    
+    @IBAction func actionOrderByName(_ sender: Any) {
+        self.presenter?.onActionOrdenByName()
+        self.actionRefreshOrdenBy()
+    }
+    
+    @IBAction func actionOrderByModified(_ sender: Any) {
+        self.presenter?.onActionOrdenByModified()
+        self.actionRefreshOrdenBy()
+    }
     
 }
 
@@ -95,6 +106,14 @@ private extension CharactersListViewController {
             }
         }
     }
+    
+    func actionRefreshOrdenBy(){
+        DispatchQueue.main.async {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            self.tableView.setContentOffset(.zero, animated: false)
+        }
+    }
+    
     
 }
 extension CharactersListViewController:UITableViewDelegate, UITableViewDataSource {

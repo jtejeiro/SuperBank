@@ -32,7 +32,6 @@ class CharactersDetailsViewController: BaseViewController {
     
     //MARK: - View Life Cycle Methods.
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
         setupInit()

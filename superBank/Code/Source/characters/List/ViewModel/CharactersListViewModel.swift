@@ -9,8 +9,9 @@
 import Foundation
 
 enum pagerParamerterKey: String, CodingKey  {
-       case limit
-       case offset
+    case limit
+    case offset
+    case orderBy
 }
 
 enum OrdenByType: String, CodingKey {
@@ -40,7 +41,11 @@ struct CharactersListViewModel {
             newList.append(contentsOf: list)
             self.charactersList = newList
         }
-        
     }
+    
+    mutating func cleanCharactersList(){
+        self.charactersList.removeAll()
+    }
+    
 }
 

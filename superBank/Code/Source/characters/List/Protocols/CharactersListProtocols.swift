@@ -34,6 +34,8 @@ protocol CharactersListPresenter: class {
     func userClickGoBack()
     func didSelectRowAt(index: Int)
     func moreRefreshCharactersList()
+    func onActionOrdenByName()
+    func onActionOrdenByModified()
 }
 
 

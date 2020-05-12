@@ -26,6 +26,8 @@ class CharactersListPresenterImpl {
     var offsetValue:Int = 0
     var limitValue:Int = 20
     
+    var orderByValue:String = ""
+    
     // MARK: - Init
     init() {
         
@@ -48,7 +50,6 @@ extension CharactersListPresenterImpl: CharactersListPresenter {
     }
     
     func userClickGoBack() {
-        //TODO Mirar porque no se lanza esta función
         router?.goBack()
     }
     
@@ -62,6 +63,36 @@ extension CharactersListPresenterImpl: CharactersListPresenter {
             offsetValue = offsetValue + limitValue
             refreshCharactersList()
         }
+    }
+    
+    func onActionOrdenByName() {
+        if orderByValue.isEmpty{
+            orderByValue = OrdenByType.nameZA.rawValue
+        }else if orderByValue == OrdenByType.nameZA.rawValue {
+            orderByValue = OrdenByType.nameAZ.rawValue
+        }else {
+            orderByValue = OrdenByType.nameZA.rawValue
+        }
+       
+        resfreshnOrdenBy()
+    }
+    
+    func onActionOrdenByModified() {
+        if orderByValue.isEmpty{
+            orderByValue = OrdenByType.modifiedTop.rawValue
+        }else if orderByValue == OrdenByType.modifiedTop.rawValue {
+            orderByValue = OrdenByType.modifiedBottom.rawValue
+        }else {
+            orderByValue = OrdenByType.modifiedTop.rawValue
+        }
+        resfreshnOrdenBy()
+    }
+    
+    func resfreshnOrdenBy(){
+        firstCharactersList = true
+        self.CharactersListVM.cleanCharactersList()
+        offsetValue = 0
+        refreshCharactersList()
     }
 }
 // MARK: - CharactersListInteractorCallback methods
@@ -91,8 +122,14 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
     }
     
     func getListPagerParameters() -> [String:Any] {
-        return [pagerParamerterKey.limit.rawValue:limitValue,
+        var listParameter:[String:Any] = [pagerParamerterKey.limit.rawValue:limitValue,
         pagerParamerterKey.offset.rawValue:offsetValue]
+        
+        if !orderByValue.isEmpty {
+            listParameter[pagerParamerterKey.orderBy.rawValue] = orderByValue
+        }
+        
+        return listParameter
     }
     
     func fetchedTypeError(baseError:BasesError){
