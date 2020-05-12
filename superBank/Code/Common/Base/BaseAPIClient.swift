@@ -55,4 +55,16 @@ class BaseAPIClient:BaseAPIClientProtocol {
         return AF.request(urlAbsolute, method: .get, parameters: parametersAbsolute , encoding: URLEncoding.default)
     }
     
+    func hashAPIResponseError(data:Data) -> BasesError{
+        if let errorResult = try? JSONDecoder().decode(BasesError.self, from: data){
+            return errorResult
+        }else {
+            let messageLog = String(data: data, encoding: .utf8)
+            let errorResponses = BasesError(code: "Error", message: "Revisar data")
+            print(messageLog ?? "error")
+            return errorResponses
+        }
+    }
+    
+    
 }

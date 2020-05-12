@@ -17,7 +17,7 @@ struct CharactersDetailsViewModel {
     
     static func mapperToCharactersDetailsResponse(charactersList:[CharactersListResponse]) -> CharactersDetailsViewModel {
         let characters = charactersList.first
-        let url:String = (characters?.thumbnail.path)! + "." + (characters?.thumbnail.thumbnailExtension.rawValue)!
+        let url:String = (characters?.thumbnail.path ?? "") + "." + (characters?.thumbnail.thumbnailExtension ?? "jpg")
         
         return CharactersDetailsViewModel(charactersDetails: characters!, urlImg: url)
     }

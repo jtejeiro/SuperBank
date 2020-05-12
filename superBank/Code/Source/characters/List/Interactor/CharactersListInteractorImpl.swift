@@ -16,14 +16,15 @@ class CharactersListInteractorImpl {
     weak var presenter: CharactersListInteractorCallback?
     
     // MARK: - Repository
+    var apiClient: BaseAPIClient
     
     // MARK: - Manager
     
     // MARK: - Var
     let relativePath = "characters"
     
-    init () {
-        
+    init (apiClient:BaseAPIClient) {
+        self.apiClient = apiClient
     }
 }
 
@@ -43,7 +44,7 @@ extension CharactersListInteractorImpl {
     // MARK: - fetch CharactersListInteractorImpl ApiCliente
     func fetchCharactersListApiClient(parameters:[String:Any]) {
         
-        BaseAPIClient().getAPIRequest(relativePath: self.relativePath, parameters: parameters).response{ (response) in
+        apiClient.getAPIRequest(relativePath: self.relativePath, parameters: parameters).response{ (response) in
             debugPrint(response)
             
             switch response.result {
@@ -53,6 +54,10 @@ extension CharactersListInteractorImpl {
                 if let result = try? JSONDecoder().decode(BasesMarvelResponse.self, from: data){
                     let basePager:BasesPagerModel = result.data
                     self.presenter?.fetchedCharactersList(result: .success(basePager))
+                }else {
+                    let errorResponses = self.apiClient.hashAPIResponseError(data: data)
+                    self.presenter?.fetchedTypeError(baseError: errorResponses)
+                    
                 }
             case let .failure(error):
                 print(error)

@@ -14,11 +14,12 @@ import Foundation
     
     @objc class func createModule() -> UIViewController {
         
+        let apiClient = BaseAPIClient()
         let view = CharactersListViewController()
         
         let presenter: CharactersListPresenterImpl = CharactersListPresenterImpl()
         
-        let interactor = CharactersListInteractorImpl()
+        let interactor = CharactersListInteractorImpl(apiClient: apiClient)
         
         let router: CharactersListRouterImpl =  CharactersListRouterImpl(mainRouter: view)
         

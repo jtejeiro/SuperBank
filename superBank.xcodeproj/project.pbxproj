@@ -19,6 +19,7 @@
 		46715F632465C50F0005E76F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46715F612465C50F0005E76F /* LaunchScreen.storyboard */; };
 		46715F6E2465C5100005E76F /* superBankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46715F6D2465C5100005E76F /* superBankTests.swift */; };
 		46715F792465C5100005E76F /* superBankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46715F782465C5100005E76F /* superBankUITests.swift */; };
+		4686781A246AAD3E005BFF1F /* BasesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46867819246AAD3E005BFF1F /* BasesError.swift */; };
 		46C2205624675AB000762FD5 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46C2205524675AB000762FD5 /* CryptoSwift */; };
 		46C2206624676E6100762FD5 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205E24676E6100762FD5 /* CharactersListViewController.swift */; };
 		46C2206724676E6100762FD5 /* CharactersListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */; };
@@ -87,6 +88,7 @@
 		46715F742465C5100005E76F /* superBankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = superBankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46715F782465C5100005E76F /* superBankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = superBankUITests.swift; sourceTree = "<group>"; };
 		46715F7A2465C5100005E76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46867819246AAD3E005BFF1F /* BasesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasesError.swift; sourceTree = "<group>"; };
 		46C2205E24676E6100762FD5 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListProtocols.swift; sourceTree = "<group>"; };
 		46C2206024676E6100762FD5 /* CharactersListPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenterImpl.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				462FF28B2465CFB200F28560 /* Characters */,
 				46C2208824687FCB00762FD5 /* BasesMarvelResponse.swift */,
+				46867819246AAD3E005BFF1F /* BasesError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				46C2206824676E6100762FD5 /* CharactersListPresenterImpl.swift in Sources */,
 				46C22078246772AF00762FD5 /* CharactersDetailsPresenterImpl.swift in Sources */,
 				46C2207A246772AF00762FD5 /* CharactersDetailsInteractorImpl.swift in Sources */,
+				4686781A246AAD3E005BFF1F /* BasesError.swift in Sources */,
 				46C2208924687FCB00762FD5 /* BasesMarvelResponse.swift in Sources */,
 				462FF29A2465E41100F28560 /* BaseAPIClient.swift in Sources */,
 				46C3C1422469572B00F3EDD8 /* UIBarButtonItem+Extension.swift in Sources */,

@@ -14,6 +14,7 @@ class CharactersDetailsInteractorImpl {
     weak var presenter: CharactersDetailsInteractorCallback?
     
     // MARK: - Repository
+    var apiClient: BaseAPIClient
     
     // MARK: - Manager
    
@@ -22,8 +23,9 @@ class CharactersDetailsInteractorImpl {
     let relativePath = "characters/"
     var charactersID:String?
     
-    init (charactersID:String) {
+    init (charactersID:String, apiClient:BaseAPIClient) {
         self.charactersID = charactersID
+        self.apiClient = apiClient
     }
 }
 

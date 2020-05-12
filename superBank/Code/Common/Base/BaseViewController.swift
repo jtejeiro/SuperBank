@@ -16,4 +16,12 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func ShowAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+    
 }

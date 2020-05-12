@@ -62,6 +62,10 @@ extension CharactersListViewController: CharactersListView {
         configView()
         tableView.reloadData()
     }
+    
+    func showAlertError(title:String,message:String){
+        self.ShowAlert(title: title, message: message)
+    }
 }
 // MARK: - Private methods
 private extension CharactersListViewController {
@@ -84,7 +88,9 @@ private extension CharactersListViewController {
     
     func actionRefresh(indexCell:Int){
         if onActionRefresh {
+            print(indexCell)
             if indexCell > self.viewModel.charactersList.count - 4 {
+                print(self.viewModel.charactersList.count)
                 self.onActionRefresh = false
                 presenter?.moreRefreshCharactersList()
             }

@@ -85,6 +85,7 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
             
         case .failure(let error):
             print(error)
+            view?.showAlertError(title: "Error", message: "revisar conexión")
         }
         
     }
@@ -94,6 +95,9 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
         pagerParamerterKey.offset.rawValue:offsetValue]
     }
     
+    func fetchedTypeError(baseError:BasesError){
+        view?.showAlertError(title: baseError.code, message: baseError.message)
+    }
     
 
 }

@@ -58,7 +58,7 @@ struct StoriesItem: Codable {
 // MARK: - Thumbnail
 struct Thumbnail: Codable {
     var path: String
-    var thumbnailExtension: Extension
+    var thumbnailExtension: String
 
     enum CodingKeys: String, CodingKey {
         case path
@@ -66,10 +66,6 @@ struct Thumbnail: Codable {
     }
 }
 
-enum Extension: String, Codable {
-    case gif = "gif"
-    case jpg = "jpg"
-}
 
 // MARK: - URLElement
 struct URLElement: Codable {

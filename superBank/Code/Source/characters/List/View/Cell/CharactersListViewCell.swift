@@ -37,7 +37,7 @@ class CharactersListViewCell: UITableViewCell {
 extension CharactersListViewCell {
     
     func changerUrlImg(urlimg:Thumbnail){
-        let urlString:String = urlimg.path + "." + urlimg.thumbnailExtension.rawValue
+        let urlString:String = urlimg.path + "." + urlimg.thumbnailExtension
         let urlImgLink = URL(string: urlString)
 
         self.charactersImageView.sd_setImage(with: urlImgLink, placeholderImage: UIImage(named: "MarvelDefault"), completed: { image, error, cacheType, imageURL in

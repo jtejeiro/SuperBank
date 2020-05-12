@@ -14,11 +14,12 @@ import UIKit
     
     @objc class func createModule(charactersID: String) -> UIViewController {
         
+        let apiClient = BaseAPIClient()
         let view = CharactersDetailsViewController()
         
         let presenter: CharactersDetailsPresenterImpl = CharactersDetailsPresenterImpl()
         
-        let interactor = CharactersDetailsInteractorImpl(charactersID: charactersID)
+        let interactor = CharactersDetailsInteractorImpl(charactersID: charactersID, apiClient: apiClient)
         
         let router: CharactersDetailsRouterImpl =  CharactersDetailsRouterImpl(mainRouter: view)
         

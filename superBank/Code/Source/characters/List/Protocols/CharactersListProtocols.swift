@@ -13,7 +13,8 @@ import Foundation
 // Define CharactersListView
 protocol CharactersListView: class {
     var presenter: CharactersListPresenter? { get set }
-    func showCharacters(CharactersVM:CharactersListViewModel) 
+    func showCharacters(CharactersVM:CharactersListViewModel)
+    func showAlertError(title:String,message:String)
     
 }
 
@@ -40,6 +41,7 @@ protocol CharactersListPresenter: class {
 
 protocol CharactersListInteractorCallback: class {
     func fetchedCharactersList(result: Result<BasesPagerModel, Error>)
+    func fetchedTypeError(baseError:BasesError)
 }
 
 protocol CharactersListInteractor: class {
