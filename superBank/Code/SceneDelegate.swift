@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let baseController = BaseConfigurator().viewController
         let navController = UINavigationController(rootViewController: baseController)
+        BaseConfigurator.ConfigGlobalApareance()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController

@@ -56,7 +56,6 @@ class CharactersDetailsViewController: BaseViewController {
     }
     
     // MARK: IBActions
-    
     @objc func actionLink(_ sender: AnyObject){
         if let link:UIButton = sender as? UIButton {
             let urlString:String = link.titleLabel?.text ?? ""

@@ -21,5 +21,12 @@ class BaseConfigurator {
     return view
     }
     
+    static func ConfigGlobalApareance(){
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().barTintColor = .red
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+    }
+
     
 }
