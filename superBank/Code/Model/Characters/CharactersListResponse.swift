@@ -69,12 +69,6 @@ struct Thumbnail: Codable {
 
 // MARK: - URLElement
 struct URLElement: Codable {
-    var type: URLType
+    var type: String
     var url: String?
-}
-
-enum URLType: String, Codable {
-    case comiclink = "comiclink"
-    case detail = "detail"
-    case wiki = "wiki"
 }

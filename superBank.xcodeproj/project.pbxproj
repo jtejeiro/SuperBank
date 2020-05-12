@@ -12,7 +12,7 @@
 		462FF2952465D26B00F28560 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 462FF2942465D26B00F28560 /* Config.plist */; };
 		462FF2982465D9F300F28560 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FF2972465D9F300F28560 /* NetworkConstants.swift */; };
 		462FF29A2465E41100F28560 /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FF2992465E41100F28560 /* BaseAPIClient.swift */; };
-		46493CD824674C83003FC8B1 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46493CD724674C83003FC8B1 /* BaseRouter.swift */; };
+		46493CD824674C83003FC8B1 /* BaseConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46493CD724674C83003FC8B1 /* BaseConfigurator.swift */; };
 		46715F572465C50E0005E76F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46715F562465C50E0005E76F /* AppDelegate.swift */; };
 		46715F592465C50E0005E76F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46715F582465C50E0005E76F /* SceneDelegate.swift */; };
 		46715F602465C50F0005E76F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46715F5F2465C50F0005E76F /* Assets.xcassets */; };
@@ -20,6 +20,7 @@
 		46715F6E2465C5100005E76F /* superBankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46715F6D2465C5100005E76F /* superBankTests.swift */; };
 		46715F792465C5100005E76F /* superBankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46715F782465C5100005E76F /* superBankUITests.swift */; };
 		4686781A246AAD3E005BFF1F /* BasesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46867819246AAD3E005BFF1F /* BasesError.swift */; };
+		4686781D246AECC9005BFF1F /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4686781C246AECC9005BFF1F /* BaseRouter.swift */; };
 		46C2205624675AB000762FD5 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46C2205524675AB000762FD5 /* CryptoSwift */; };
 		46C2206624676E6100762FD5 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205E24676E6100762FD5 /* CharactersListViewController.swift */; };
 		46C2206724676E6100762FD5 /* CharactersListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */; };
@@ -75,7 +76,7 @@
 		462FF2942465D26B00F28560 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		462FF2972465D9F300F28560 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		462FF2992465E41100F28560 /* BaseAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
-		46493CD724674C83003FC8B1 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		46493CD724674C83003FC8B1 /* BaseConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfigurator.swift; sourceTree = "<group>"; };
 		46715F532465C50E0005E76F /* superBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = superBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46715F562465C50E0005E76F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46715F582465C50E0005E76F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		46715F782465C5100005E76F /* superBankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = superBankUITests.swift; sourceTree = "<group>"; };
 		46715F7A2465C5100005E76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46867819246AAD3E005BFF1F /* BasesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasesError.swift; sourceTree = "<group>"; };
+		4686781C246AECC9005BFF1F /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		46C2205E24676E6100762FD5 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListProtocols.swift; sourceTree = "<group>"; };
 		46C2206024676E6100762FD5 /* CharactersListPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenterImpl.swift; sourceTree = "<group>"; };
@@ -179,9 +181,10 @@
 		462FF2822465CC5A00F28560 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				46493CD724674C83003FC8B1 /* BaseConfigurator.swift */,
 				462FF2832465CCC400F28560 /* BaseViewController.swift */,
 				462FF2992465E41100F28560 /* BaseAPIClient.swift */,
-				46493CD724674C83003FC8B1 /* BaseRouter.swift */,
+				4686781C246AECC9005BFF1F /* BaseRouter.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				46C22078246772AF00762FD5 /* CharactersDetailsPresenterImpl.swift in Sources */,
 				46C2207A246772AF00762FD5 /* CharactersDetailsInteractorImpl.swift in Sources */,
 				4686781A246AAD3E005BFF1F /* BasesError.swift in Sources */,
+				4686781D246AECC9005BFF1F /* BaseRouter.swift in Sources */,
 				46C2208924687FCB00762FD5 /* BasesMarvelResponse.swift in Sources */,
 				462FF29A2465E41100F28560 /* BaseAPIClient.swift in Sources */,
 				46C3C1422469572B00F3EDD8 /* UIBarButtonItem+Extension.swift in Sources */,
@@ -757,7 +761,7 @@
 				46C2206624676E6100762FD5 /* CharactersListViewController.swift in Sources */,
 				46263F432469533100890B67 /* imageView+Extension.swift in Sources */,
 				46C22076246772AF00762FD5 /* CharactersDetailsViewController.swift in Sources */,
-				46493CD824674C83003FC8B1 /* BaseRouter.swift in Sources */,
+				46493CD824674C83003FC8B1 /* BaseConfigurator.swift in Sources */,
 				46715F572465C50E0005E76F /* AppDelegate.swift in Sources */,
 				46C22077246772AF00762FD5 /* CharactersDetailsProtocols.swift in Sources */,
 				46C2206A24676E6100762FD5 /* CharactersListInteractorImpl.swift in Sources */,

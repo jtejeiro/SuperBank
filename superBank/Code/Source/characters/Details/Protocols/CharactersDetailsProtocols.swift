@@ -31,7 +31,7 @@ protocol CharactersDetailsPresenter: class {
     func viewDidLoad()
     func viewWillAppear()
     func viewDidAppear()
-    
+    func onActionlink(urlString:String)
     func userClickGoBack()
 }
 
@@ -52,5 +52,6 @@ protocol CharactersDetailsInteractor: class {
 
 // MARK: - Router
 protocol CharactersDetailsRouter: class {
-
+    func goBack()
+    func goOpenWeb(urlString:String)
 }

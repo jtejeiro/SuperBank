@@ -46,7 +46,11 @@ extension CharactersDetailsPresenterImpl: CharactersDetailsPresenter {
     }
     
     func userClickGoBack() {
-
+        router?.goBack()
+    }
+    
+    func onActionlink(urlString: String) {
+        router?.goOpenWeb(urlString: urlString)
     }
     
 }

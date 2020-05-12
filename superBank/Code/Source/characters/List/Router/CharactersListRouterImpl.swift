@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class CharactersListRouterImpl: BaseRouter {
+class CharactersListRouterImpl {
     
     var mainRouter:UIViewController
     

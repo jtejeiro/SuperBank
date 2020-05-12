@@ -12,14 +12,15 @@ import Foundation
 struct CharactersDetailsViewModel {
     let charactersDetails: CharactersListResponse
     let urlImg:String
+    let listLink:[URLElement]
     
     
     
     static func mapperToCharactersDetailsResponse(charactersList:[CharactersListResponse]) -> CharactersDetailsViewModel {
         let characters = charactersList.first
         let url:String = (characters?.thumbnail.path ?? "") + "." + (characters?.thumbnail.thumbnailExtension ?? "jpg")
-        
-        return CharactersDetailsViewModel(charactersDetails: characters!, urlImg: url)
+        let listUrl:[URLElement] = characters?.urls ?? [URLElement]()
+        return CharactersDetailsViewModel(charactersDetails: characters!, urlImg: url,listLink: listUrl )
     }
     
 }

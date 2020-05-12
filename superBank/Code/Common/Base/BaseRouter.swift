@@ -2,24 +2,19 @@
 //  BaseRouter.swift
 //  superBank
 //
-//  Created by Jaime Tejeiro on 09/05/2020.
+//  Created by Jaime Tejeiro on 12/05/2020.
 //  Copyright © 2020 Jaime Tejeiro. All rights reserved.
 //
-
-import Foundation
 import UIKit
+import Foundation
 
-class BaseRouter  {
-
-    var viewController: UIViewController {
-        return createViewController()
+class BaseRouter {
+    
+    func openWebUrl(_ url: URL) {
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
-    
-    
-    private func createViewController() -> UIViewController {
-        let view = CharactersListConfigurator.createModule()
-    return view
-    }
-    
-    
 }

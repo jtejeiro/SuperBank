@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CharactersDetailsRouterImpl {
+class CharactersDetailsRouterImpl:BaseRouter {
     
     var mainRouter:UIViewController
     
@@ -18,6 +18,16 @@ class CharactersDetailsRouterImpl {
 }
  // MARK: - CharactersDetailsRouterImpl
 extension CharactersDetailsRouterImpl: CharactersDetailsRouter  {
+    
+    func goBack() {
+        mainRouter.navigationController?.popViewController(animated: true)
+    }
+    
+    func goOpenWeb(urlString:String) {
+        if let link = URL(string: urlString ) {
+            self.openWebUrl(link)
+        }
+    }
     
     
 }

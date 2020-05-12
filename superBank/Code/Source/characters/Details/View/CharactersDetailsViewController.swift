@@ -20,6 +20,8 @@ class CharactersDetailsViewController: BaseViewController {
     @IBOutlet weak var charactersImageView: UIImageView!
     @IBOutlet weak var CharactersNameLabel: UILabel!
     @IBOutlet weak var CharactersDescriptionLabel: UILabel!
+    @IBOutlet var typeListLabel: [UILabel]!
+    @IBOutlet var linkListLabel: [UIButton]!
     
     
     
@@ -55,6 +57,13 @@ class CharactersDetailsViewController: BaseViewController {
     
     // MARK: IBActions
     
+    @objc func actionLink(_ sender: AnyObject){
+        if let link:UIButton = sender as? UIButton {
+            let urlString:String = link.titleLabel?.text ?? ""
+            presenter?.onActionlink(urlString: urlString)
+        }
+    }
+    
 }
 
 // MARK: - CharactersDetailsViewController
@@ -78,18 +87,32 @@ private extension CharactersDetailsViewController {
     
     // MARK: - Setup
     func setupInit() {
-        /*
-         title = GMLanguage.get("page_title")
-         let backItem = UIBarButtonItem(image: UIImage(named: "bt_back"), style: .plain, target: self, action: #selector(clickBackBt))
-         navigationItem.leftBarButtonItem = backItem
-         */
+        setupInitUrl()
+    }
+    
+    func setupInitUrl(){
+        for type in typeListLabel {
+            type.text = ""
+        }
+        for link in linkListLabel {
+            link.setTitle("", for: .normal)
+            link.addTarget(self, action: #selector(self.actionLink(_:)), for: .touchUpInside)
+        }
     }
     
     func configView() {
         self.navigationItem.title = viewModel.charactersDetails.name
         self.CharactersNameLabel.text = viewModel.charactersDetails.name
         self.CharactersDescriptionLabel.text = viewModel.charactersDetails.resultDescription
-        changerUrlImg(urlimg: viewModel.urlImg)
+        self.changerUrlImg(urlimg: viewModel.urlImg)
+        configViewUrl()
+    }
+    
+    func configViewUrl(){
+        for (index,elemet) in viewModel.listLink.enumerated() {
+            self.typeListLabel[index].text = elemet.type
+            self.linkListLabel[index].setTitle(elemet.url, for: .normal)
+        }
     }
     
     func changerUrlImg(urlimg:String){
