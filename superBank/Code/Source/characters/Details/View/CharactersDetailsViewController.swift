@@ -60,6 +60,11 @@ class CharactersDetailsViewController: BaseViewController {
 // MARK: - CharactersDetailsViewController
 extension CharactersDetailsViewController: CharactersDetailsView {
     
+    func showAlertError(title: String, message: String) {
+        self.ShowAlert(title: title, message: message)
+    }
+    
+    
     func showCharacters(CharactersVM: CharactersDetailsViewModel) {
         self.viewModel = CharactersVM
         configView()

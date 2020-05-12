@@ -14,7 +14,8 @@ import Foundation
 protocol CharactersDetailsView: class {
     
     var presenter: CharactersDetailsPresenter? { get set }
-    func showCharacters(CharactersVM:CharactersDetailsViewModel) 
+    func showCharacters(CharactersVM:CharactersDetailsViewModel)
+    func showAlertError(title:String,message:String)
     
 }
 
@@ -39,6 +40,7 @@ protocol CharactersDetailsPresenter: class {
 
 protocol CharactersDetailsInteractorCallback: class {
      func fetchedCharactersDetails(result: Result<[CharactersListResponse], Error>)
+     func fetchedTypeError(baseError:BasesError)
 }
 
 protocol CharactersDetailsInteractor: class {

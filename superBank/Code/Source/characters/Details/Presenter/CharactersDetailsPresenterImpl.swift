@@ -64,10 +64,13 @@ extension CharactersDetailsPresenterImpl: CharactersDetailsInteractorCallback {
             
         case .failure(let error):
             print(error)
+             view?.showAlertError(title: "Error", message: "revisar conexión")
         }
     }
     
-    
+    func fetchedTypeError(baseError:BasesError){
+           view?.showAlertError(title: baseError.code, message: baseError.message)
+    }
 
 }
 

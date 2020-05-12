@@ -64,6 +64,9 @@ extension CharactersDetailsInteractorImpl {
                 if let result = try? JSONDecoder().decode(BasesMarvelResponse.self, from: data){
                     let characters:[CharactersListResponse] = result.data.results
                     self.presenter?.fetchedCharactersDetails(result: .success(characters))
+                }else {
+                    let errorResponses = self.apiClient.hashAPIResponseError(data: data)
+                    self.presenter?.fetchedTypeError(baseError: errorResponses)
                 }
                 
             case let .failure(error):
