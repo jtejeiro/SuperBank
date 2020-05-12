@@ -15,11 +15,3 @@ struct BasesMarvelResponse:Codable {
     var status: String?
     var data:BasesPagerModel
 }
-
-struct BasesPagerModel: Codable  {
-    var offset, limit, total, count: Int
-    var results: [CharactersListResponse]
-}
-
-
-

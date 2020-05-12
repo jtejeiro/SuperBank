@@ -60,7 +60,7 @@ class BaseAPIClient:BaseAPIClientProtocol {
             return errorResult
         }else {
             let messageLog = String(data: data, encoding: .utf8)
-            let errorResponses = BasesError(code: "Error", message: "Revisar data")
+            let errorResponses = BasesError(code: "Error", message: "Review data")
             print(messageLog ?? "error")
             return errorResponses
         }

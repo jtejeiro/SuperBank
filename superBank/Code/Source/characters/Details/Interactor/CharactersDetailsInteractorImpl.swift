@@ -54,7 +54,7 @@ extension CharactersDetailsInteractorImpl {
     func fetchCharactersDetailsApiClient() {
         let absolutePath = self.relativePath + self.charactersID! 
         
-        BaseAPIClient().getAPIRequest(relativePath: absolutePath , parameters: [:]).response{ (response) in
+        apiClient.getAPIRequest(relativePath: absolutePath , parameters: [:]).response{ (response) in
             debugPrint(response)
             
             switch response.result {

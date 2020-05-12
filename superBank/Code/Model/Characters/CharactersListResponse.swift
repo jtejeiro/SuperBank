@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - CharactersListResponse
 struct CharactersListResponse: Codable {
     var id: Int
     var name, resultDescription: String

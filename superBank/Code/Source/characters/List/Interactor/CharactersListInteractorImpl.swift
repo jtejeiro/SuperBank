@@ -49,7 +49,6 @@ extension CharactersListInteractorImpl {
             
             switch response.result {
             case .success:
-                print("Validation Successful")
                 guard let data = response.data else {return}
                 if let result = try? JSONDecoder().decode(BasesMarvelResponse.self, from: data){
                     let basePager:BasesPagerModel = result.data
@@ -66,8 +65,6 @@ extension CharactersListInteractorImpl {
         }
         
     }
-    
-    
     
     
     // MARK: - fetch CharactersListInteractorImpl DataManager

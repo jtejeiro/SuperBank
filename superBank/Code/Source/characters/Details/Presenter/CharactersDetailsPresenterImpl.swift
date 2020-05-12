@@ -68,7 +68,7 @@ extension CharactersDetailsPresenterImpl: CharactersDetailsInteractorCallback {
             
         case .failure(let error):
             print(error)
-             view?.showAlertError(title: "Error", message: "revisar conexión")
+             view?.showAlertError(title: "Error", message: "check connection")
         }
     }
     
