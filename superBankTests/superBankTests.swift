@@ -2,8 +2,8 @@
 //  superBankTests.swift
 //  superBankTests
 //
-//  Created by Jaime Tejeiro on 08/05/2020.
-//  Copyright © 2020 Jaime Tejeiro. All rights reserved.
+//  Created by Jt on 08/05/2020.
+//  Copyright © 2020 JT. All rights reserved.
 //
 
 import XCTest

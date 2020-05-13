@@ -2,8 +2,8 @@
 //  CharactersDetailsViewModel.swift
 //  superBank
 //
-//  Created by Jaime Tejeiro on 10/05/2020.
-//  Copyright © 2020 Jaime Tejeiro. All rights reserved.
+//  Created by JT on 10/05/2020.
+//  Copyright © 2020 JT. All rights reserved.
 //
 
 import Foundation

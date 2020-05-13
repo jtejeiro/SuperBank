@@ -22,4 +22,4 @@ Aplicativo desarrollado en IOS para una prueba. En arquitectura VIPER 🚀.
   
 ## Autor
 
-* [**Jaime Tejeiro**](https://github.com/jtejeiro)
+* [**JT**](https://github.com/jtejeiro)
