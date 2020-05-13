@@ -29,5 +29,10 @@ extension CharactersDetailsRouterImpl: CharactersDetailsRouter  {
         }
     }
     
+    func goShowWebViewController(title:String, urlString:String) {
+        let viewController = BaseWebViewController.showBaseWebViewController(title: title, urlPager: urlString)
+        mainRouter.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     
 }

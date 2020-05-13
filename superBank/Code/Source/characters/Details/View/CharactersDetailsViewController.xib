@@ -45,7 +45,7 @@
                                             <rect key="frame" x="0.0" y="300" width="414" height="580"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyr-vk-mfa">
-                                                    <rect key="frame" x="20" y="63" width="374" height="0.0"/>
+                                                    <rect key="frame" x="20" y="83" width="374" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kgH-0K-3LV">
-                                                    <rect key="frame" x="20" y="83" width="374" height="88"/>
+                                                    <rect key="frame" x="20" y="133" width="374" height="88"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0Ts-Pl-tQY">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
@@ -199,10 +199,10 @@
                                                 <constraint firstItem="nQC-I9-9HM" firstAttribute="leading" secondItem="xQx-7q-LBi" secondAttribute="leading" constant="20" id="HYV-FA-Xkf"/>
                                                 <constraint firstItem="cyr-vk-mfa" firstAttribute="leading" secondItem="xQx-7q-LBi" secondAttribute="leading" constant="20" id="IgA-Jw-hoE"/>
                                                 <constraint firstAttribute="trailing" secondItem="nQC-I9-9HM" secondAttribute="trailing" constant="20" id="Php-97-i0C"/>
-                                                <constraint firstItem="cyr-vk-mfa" firstAttribute="top" secondItem="nQC-I9-9HM" secondAttribute="bottom" constant="20" id="Ymk-jI-tsP"/>
+                                                <constraint firstItem="cyr-vk-mfa" firstAttribute="top" secondItem="nQC-I9-9HM" secondAttribute="bottom" constant="40" id="Ymk-jI-tsP"/>
                                                 <constraint firstAttribute="trailing" secondItem="cyr-vk-mfa" secondAttribute="trailing" constant="20" id="f4P-DH-fyS"/>
                                                 <constraint firstAttribute="trailing" secondItem="kgH-0K-3LV" secondAttribute="trailing" constant="20" id="sRm-08-NF5"/>
-                                                <constraint firstItem="kgH-0K-3LV" firstAttribute="top" secondItem="cyr-vk-mfa" secondAttribute="bottom" constant="20" id="y5O-ON-DGs"/>
+                                                <constraint firstItem="kgH-0K-3LV" firstAttribute="top" secondItem="cyr-vk-mfa" secondAttribute="bottom" constant="50" id="y5O-ON-DGs"/>
                                             </constraints>
                                         </view>
                                     </subviews>

@@ -25,6 +25,7 @@
 		46ABF6DC246C9EFC003E41D0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF6DB246C9EFC003E41D0 /* UIView+Extension.swift */; };
 		46ABF6DE246CA076003E41D0 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF6DD246CA076003E41D0 /* SearchListView.swift */; };
 		46ABF6E0246CA0B9003E41D0 /* SearchListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABF6DF246CA0B9003E41D0 /* SearchListView.xib */; };
+		46ABF6E4246CAA19003E41D0 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF6E2246CAA19003E41D0 /* BaseWebViewController.swift */; };
 		46C2205624675AB000762FD5 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46C2205524675AB000762FD5 /* CryptoSwift */; };
 		46C2206624676E6100762FD5 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205E24676E6100762FD5 /* CharactersListViewController.swift */; };
 		46C2206724676E6100762FD5 /* CharactersListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */; };
@@ -99,6 +100,7 @@
 		46ABF6DB246C9EFC003E41D0 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		46ABF6DD246CA076003E41D0 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		46ABF6DF246CA0B9003E41D0 /* SearchListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListView.xib; sourceTree = "<group>"; };
+		46ABF6E2246CAA19003E41D0 /* BaseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		46C2205E24676E6100762FD5 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListProtocols.swift; sourceTree = "<group>"; };
 		46C2206024676E6100762FD5 /* CharactersListPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenterImpl.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		462FF2812465CB8000F28560 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				46ABF6E1246CA9DA003E41D0 /* webView */,
 				462FF2822465CC5A00F28560 /* Base */,
 			);
 			path = Common;
@@ -384,6 +387,14 @@
 				46C22072246772AF00762FD5 /* CharactersDetailsInteractorImpl.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		46ABF6E1246CA9DA003E41D0 /* webView */ = {
+			isa = PBXGroup;
+			children = (
+				46ABF6E2246CAA19003E41D0 /* BaseWebViewController.swift */,
+			);
+			path = webView;
 			sourceTree = "<group>";
 		};
 		46C2207E2467EE7200762FD5 /* View */ = {
@@ -775,6 +786,7 @@
 				462FF2842465CCC400F28560 /* BaseViewController.swift in Sources */,
 				46C2206624676E6100762FD5 /* CharactersListViewController.swift in Sources */,
 				46263F432469533100890B67 /* imageView+Extension.swift in Sources */,
+				46ABF6E4246CAA19003E41D0 /* BaseWebViewController.swift in Sources */,
 				46C22076246772AF00762FD5 /* CharactersDetailsViewController.swift in Sources */,
 				46493CD824674C83003FC8B1 /* BaseConfigurator.swift in Sources */,
 				46715F572465C50E0005E76F /* AppDelegate.swift in Sources */,

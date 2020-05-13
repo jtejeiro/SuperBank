@@ -49,8 +49,8 @@ extension CharactersDetailsPresenterImpl: CharactersDetailsPresenter {
         router?.goBack()
     }
     
-    func onActionlink(urlString: String) {
-        router?.goOpenWeb(urlString: urlString)
+    func onActionlink(title:String ,urlString: String) {
+        router?.goShowWebViewController(title:title,urlString: urlString)
     }
     
 }

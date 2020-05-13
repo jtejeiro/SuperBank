@@ -58,7 +58,7 @@ class CharactersDetailsViewController: BaseViewController {
     @objc func actionLink(_ sender: AnyObject){
         if let link:UIButton = sender as? UIButton {
             let urlString:String = link.titleLabel?.text ?? ""
-            presenter?.onActionlink(urlString: urlString)
+            presenter?.onActionlink(title: viewModel.charactersDetails.name, urlString: urlString)
         }
     }
     
@@ -102,6 +102,8 @@ private extension CharactersDetailsViewController {
         self.navigationItem.title = viewModel.charactersDetails.name
         self.CharactersNameLabel.text = viewModel.charactersDetails.name
         self.CharactersDescriptionLabel.text = viewModel.charactersDetails.resultDescription
+        self.charactersImageView.image = UIImage(named: "MarvelDefault")
+        self.charactersImageView.contentMode = .scaleAspectFill
         self.changerUrlImg(urlimg: viewModel.urlImg)
         configViewUrl()
     }
