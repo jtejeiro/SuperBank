@@ -36,6 +36,7 @@ protocol CharactersListPresenter: class {
     func moreRefreshCharactersList()
     func onActionOrdenByName()
     func onActionOrdenByModified()
+    func actionSearchBarButtonClicked(text: String)
 }
 
 

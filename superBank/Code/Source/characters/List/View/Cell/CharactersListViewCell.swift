@@ -20,18 +20,21 @@ class CharactersListViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-    func setupCell(name:String,thumbnail:Thumbnail){
+    func setupCell(name:String,thumbnail:Thumbnail?){
         self.CharactersLabel.text = name
-        changerUrlImg(urlimg: thumbnail)
+        if thumbnail != nil {
+            changerUrlImg(urlimg: thumbnail ?? Thumbnail(path: "", thumbnailExtension: ""))
+        }else {
+            self.charactersImageView.image = UIImage(named: "MarvelDefault")
+            self.charactersImageView.contentMode = .scaleAspectFill
+        }
     }
     
 }

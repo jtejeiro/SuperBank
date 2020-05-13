@@ -12,6 +12,7 @@ enum pagerParamerterKey: String, CodingKey  {
     case limit
     case offset
     case orderBy
+    case nameStartsWith
 }
 
 enum OrdenByType: String, CodingKey {

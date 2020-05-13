@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersListViewController" customModule="superBank" customModuleProvider="target">
             <connections>
-                <outlet property="emptyView" destination="KvX-Qo-Y0O" id="vSY-MA-moY"/>
+                <outlet property="emptyView" destination="82M-nz-1et" id="YsN-ic-cHy"/>
                 <outlet property="ordenByModifiedButton" destination="S3A-3X-K9J" id="bu5-E5-OAN"/>
                 <outlet property="ordenByNameButton" destination="I1o-CC-UB2" id="vql-fI-MuC"/>
                 <outlet property="tableView" destination="asd-AO-jya" id="BB5-5Q-qrm"/>
@@ -24,10 +24,27 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tY2-CM-cvh">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvX-Qo-Y0O">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="odY-s5-wST">
+                                    <rect key="frame" x="40" y="304" width="334" height="128"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="128" id="bWi-zY-TX0"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="odY-s5-wST" firstAttribute="centerY" secondItem="KvX-Qo-Y0O" secondAttribute="centerY" constant="-80" id="5sA-JC-Wgj"/>
+                                <constraint firstItem="odY-s5-wST" firstAttribute="leading" secondItem="KvX-Qo-Y0O" secondAttribute="leading" constant="40" id="MIj-CI-rL9"/>
+                                <constraint firstAttribute="trailing" secondItem="odY-s5-wST" secondAttribute="trailing" constant="40" id="i6J-iu-Oot"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82M-nz-1et">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="20" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asd-AO-jya">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asd-AO-jya">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </tableView>
@@ -100,23 +117,6 @@
                                 <constraint firstAttribute="bottom" secondItem="SyJ-3c-EgG" secondAttribute="bottom" constant="40" id="iGt-ZZ-dl6"/>
                                 <constraint firstAttribute="trailing" secondItem="asd-AO-jya" secondAttribute="trailing" id="iaI-Hg-WTw"/>
                                 <constraint firstItem="SyJ-3c-EgG" firstAttribute="centerX" secondItem="82M-nz-1et" secondAttribute="centerX" id="nHf-KL-bHn"/>
-                            </constraints>
-                        </view>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvX-Qo-Y0O">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="odY-s5-wST">
-                                    <rect key="frame" x="40" y="304" width="334" height="128"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="128" id="bWi-zY-TX0"/>
-                                    </constraints>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <constraints>
-                                <constraint firstItem="odY-s5-wST" firstAttribute="centerY" secondItem="KvX-Qo-Y0O" secondAttribute="centerY" constant="-80" id="5sA-JC-Wgj"/>
-                                <constraint firstItem="odY-s5-wST" firstAttribute="leading" secondItem="KvX-Qo-Y0O" secondAttribute="leading" constant="40" id="MIj-CI-rL9"/>
-                                <constraint firstAttribute="trailing" secondItem="odY-s5-wST" secondAttribute="trailing" constant="40" id="i6J-iu-Oot"/>
                             </constraints>
                         </view>
                     </subviews>

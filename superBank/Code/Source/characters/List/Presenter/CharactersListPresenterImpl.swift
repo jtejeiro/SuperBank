@@ -27,6 +27,7 @@ class CharactersListPresenterImpl {
     var limitValue:Int = 20
     
     var orderByValue:String = ""
+    var nameStartsWithValue:String = ""
     
     // MARK: - Init
     init() {
@@ -74,7 +75,7 @@ extension CharactersListPresenterImpl: CharactersListPresenter {
             orderByValue = OrdenByType.nameZA.rawValue
         }
        
-        resfreshnOrdenBy()
+        resfreshOrdenBy()
     }
     
     func onActionOrdenByModified() {
@@ -85,14 +86,12 @@ extension CharactersListPresenterImpl: CharactersListPresenter {
         }else {
             orderByValue = OrdenByType.modifiedTop.rawValue
         }
-        resfreshnOrdenBy()
+        resfreshOrdenBy()
     }
-    
-    func resfreshnOrdenBy(){
-        firstCharactersList = true
-        self.CharactersListVM.cleanCharactersList()
-        offsetValue = 0
-        refreshCharactersList()
+
+    func actionSearchBarButtonClicked(text: String) {
+        nameStartsWithValue = text
+        resfreshnameStartsWith()
     }
 }
 // MARK: - CharactersListInteractorCallback methods
@@ -129,6 +128,10 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
             listParameter[pagerParamerterKey.orderBy.rawValue] = orderByValue
         }
         
+        if !nameStartsWithValue.isEmpty {
+            listParameter[pagerParamerterKey.nameStartsWith.rawValue] = nameStartsWithValue
+        }
+        
         return listParameter
     }
     
@@ -144,5 +147,21 @@ private extension CharactersListPresenterImpl {
     
     func refreshCharactersList(){
         interactor?.fetchCharactersList(parameters: getListPagerParameters())
+    }
+    
+    func resfreshOrdenBy(){
+        firstCharactersList = true
+        self.CharactersListVM.cleanCharactersList()
+        offsetValue = 0
+        nameStartsWithValue = ""
+        refreshCharactersList()
+    }
+    
+    func resfreshnameStartsWith(){
+        firstCharactersList = true
+        self.CharactersListVM.cleanCharactersList()
+        offsetValue = 0
+        orderByValue = ""
+        refreshCharactersList()
     }
 }

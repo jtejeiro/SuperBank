@@ -44,6 +44,8 @@
 		46C220872468583D00762FD5 /* CharactersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C220862468583D00762FD5 /* CharactersListResponse.swift */; };
 		46C2208924687FCB00762FD5 /* BasesMarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2208824687FCB00762FD5 /* BasesMarvelResponse.swift */; };
 		46C3C1422469572B00F3EDD8 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C3C1412469572B00F3EDD8 /* UIBarButtonItem+Extension.swift */; };
+		46CBE90F246BD9C7005329EB /* SearchHeaderListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CBE90D246BD9C7005329EB /* SearchHeaderListViewCell.swift */; };
+		46CBE910246BD9C7005329EB /* SearchHeaderListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46CBE90E246BD9C7005329EB /* SearchHeaderListViewCell.xib */; };
 		9274F1D61A5958AC7021363D /* Pods_superBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8655D8EF1409EAF488D6A65 /* Pods_superBankTests.framework */; };
 		CC0A7B155FD7A5AD278C3402 /* Pods_superBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304F29E41AAD091DDC1599E8 /* Pods_superBank.framework */; };
 		DAD6BDC3F5C34DFCF51BFE73 /* Pods_superBank_superBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA4E0160EBFD3C6F725C3CD /* Pods_superBank_superBankUITests.framework */; };
@@ -114,6 +116,8 @@
 		46C220862468583D00762FD5 /* CharactersListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListResponse.swift; sourceTree = "<group>"; };
 		46C2208824687FCB00762FD5 /* BasesMarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasesMarvelResponse.swift; sourceTree = "<group>"; };
 		46C3C1412469572B00F3EDD8 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		46CBE90D246BD9C7005329EB /* SearchHeaderListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderListViewCell.swift; sourceTree = "<group>"; };
+		46CBE90E246BD9C7005329EB /* SearchHeaderListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderListViewCell.xib; sourceTree = "<group>"; };
 		76805481E6344F2448297F6E /* Pods-superBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-superBank.debug.xcconfig"; path = "Target Support Files/Pods-superBank/Pods-superBank.debug.xcconfig"; sourceTree = "<group>"; };
 		A8655D8EF1409EAF488D6A65 /* Pods_superBankTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_superBankTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48CC329979C5C6451BFC44F /* Pods-superBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-superBankTests.debug.xcconfig"; path = "Target Support Files/Pods-superBankTests/Pods-superBankTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 			children = (
 				46C220802467EECB00762FD5 /* CharactersListViewCell.swift */,
 				46C220812467EECB00762FD5 /* CharactersListViewCell.xib */,
+				46CBE90D246BD9C7005329EB /* SearchHeaderListViewCell.swift */,
+				46CBE90E246BD9C7005329EB /* SearchHeaderListViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46CBE910246BD9C7005329EB /* SearchHeaderListViewCell.xib in Resources */,
 				46715F632465C50F0005E76F /* LaunchScreen.storyboard in Resources */,
 				46715F602465C50F0005E76F /* Assets.xcassets in Resources */,
 				46C2207D246772AF00762FD5 /* CharactersDetailsViewController.xib in Resources */,
@@ -750,6 +757,7 @@
 				462FF2982465D9F300F28560 /* NetworkConstants.swift in Sources */,
 				46C2206C24676E6100762FD5 /* CharactersListConfigurator.swift in Sources */,
 				46C2206924676E6100762FD5 /* CharactersListRouterImpl.swift in Sources */,
+				46CBE90F246BD9C7005329EB /* SearchHeaderListViewCell.swift in Sources */,
 				46867826246B0219005BFF1F /* BasesPagerModel.swift in Sources */,
 				46C2206824676E6100762FD5 /* CharactersListPresenterImpl.swift in Sources */,
 				46C22078246772AF00762FD5 /* CharactersDetailsPresenterImpl.swift in Sources */,

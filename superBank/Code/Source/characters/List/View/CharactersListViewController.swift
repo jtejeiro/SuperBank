@@ -43,7 +43,7 @@ class CharactersListViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.presenter?.viewDidAppear()
-        configView()
+       
     }
     
     
@@ -56,13 +56,13 @@ class CharactersListViewController: BaseViewController {
     // MARK: IBActions
     
     @IBAction func actionOrderByName(_ sender: Any) {
-        self.emptyView.isHidden = false
+        self.emptyView.isHidden = true
         self.presenter?.onActionOrdenByName()
         self.actionRefreshOrdenBy()
     }
     
     @IBAction func actionOrderByModified(_ sender: Any) {
-        self.emptyView.isHidden = false
+        self.emptyView.isHidden = true
         self.presenter?.onActionOrdenByModified()
         self.actionRefreshOrdenBy()
     }
@@ -75,8 +75,9 @@ extension CharactersListViewController: CharactersListView {
     func showCharacters(CharactersVM:CharactersListViewModel){
         self.viewModel = CharactersVM
         showEmptyView()
-        tableView.reloadData()
+        configView()
         onActionRefresh = true
+        tableView.reloadData()
     }
     
     func showAlertError(title:String,message:String){
@@ -90,7 +91,7 @@ private extension CharactersListViewController {
     // MARK: - Setup
     func setupInit() {
         self.navigationItem.title = "characters"
-        self.emptyView.isHidden = false
+        self.emptyView.isHidden = true
     }
     
     func configView() {
@@ -102,6 +103,16 @@ private extension CharactersListViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: CharactersListViewCell.identifier , bundle: nil), forCellReuseIdentifier: CharactersListViewCell.identifier)
+        tableView.register(UINib(nibName: SearchHeaderListViewCell.identifier , bundle: nil), forCellReuseIdentifier: SearchHeaderListViewCell.identifier)
+        tableView.sectionHeaderHeight = 50
+//        configHeaderTableView()
+    }
+    
+    func configHeaderTableView(){
+        let headerTable = SearchHeaderListViewCell.instanceFromNib() as? SearchHeaderListViewCell
+        headerTable?.delegate = self
+        tableView.tableHeaderView = headerTable
+        
     }
     
     func actionRefresh(indexCell:Int){
@@ -125,7 +136,7 @@ private extension CharactersListViewController {
         if viewModel.charactersList.count == 0{
             self.emptyView.isHidden = false
         }else {
-            self.emptyView.isHidden = true
+            self.emptyView.isHidden = false
         }
     }
     
@@ -133,7 +144,9 @@ private extension CharactersListViewController {
 extension CharactersListViewController:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.charactersList.count
+        var count = viewModel.charactersList.count
+        if count == 0 { count = 1}
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -141,18 +154,40 @@ extension CharactersListViewController:UITableViewDelegate, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CharactersListViewCell.identifier, for: indexPath) as? CharactersListViewCell else{
             return CharactersListViewCell()
         }
+        if !viewModel.charactersList.isEmpty {
+            let type:CharactersListResponse = viewModel.charactersList[indexPath.row]
+            cell.setupCell(name: type.name, thumbnail: type.thumbnail)
+        }else {
+            cell.setupCell(name: "" , thumbnail: nil)
+        }
         
-        let type = viewModel.charactersList[indexPath.row]
-        cell.setupCell(name: type.name, thumbnail: type.thumbnail)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         presenter?.didSelectRowAt(index: indexPath.row)
+        if !viewModel.charactersList.isEmpty {
+            presenter?.didSelectRowAt(index: indexPath.row)
+        }
         
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        actionRefresh(indexCell: indexPath.row)
+        if !viewModel.charactersList.isEmpty {
+            actionRefresh(indexCell: indexPath.row)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerTable = SearchHeaderListViewCell.instanceFromNib() as? SearchHeaderListViewCell
+        headerTable?.delegate = self
+        return headerTable
     }
 
+}
+
+extension CharactersListViewController:SearchHeaderListDelegate {
+    
+    func searchBarButtonClicked(text: String) {
+        presenter?.actionSearchBarButtonClicked(text: text)
+        actionRefreshOrdenBy()
+    }
 }
