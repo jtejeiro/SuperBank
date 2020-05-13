@@ -92,7 +92,9 @@ extension CharactersListPresenterImpl: CharactersListPresenter {
     func actionSearchBarButtonClicked(text: String) {
         nameStartsWithValue = text
         resfreshnameStartsWith()
+        view?.resfreshTitleNavegationBar(title: text)
     }
+    
 }
 // MARK: - CharactersListInteractorCallback methods
 extension CharactersListPresenterImpl: CharactersListInteractorCallback {
@@ -155,6 +157,7 @@ private extension CharactersListPresenterImpl {
         offsetValue = 0
         nameStartsWithValue = ""
         refreshCharactersList()
+        view?.resfreshTitleNavegationBar(title: nameStartsWithValue)
     }
     
     func resfreshnameStartsWith(){

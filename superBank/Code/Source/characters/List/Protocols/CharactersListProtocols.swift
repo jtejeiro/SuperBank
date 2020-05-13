@@ -15,6 +15,7 @@ protocol CharactersListView: class {
     var presenter: CharactersListPresenter? { get set }
     func showCharacters(CharactersVM:CharactersListViewModel)
     func showAlertError(title:String,message:String)
+    func resfreshTitleNavegationBar(title:String)
     
 }
 

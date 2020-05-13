@@ -21,6 +21,7 @@ class CharactersListViewController: BaseViewController {
     @IBOutlet private var ordenByNameButton:UIButton!
     @IBOutlet private var ordenByModifiedButton:UIButton!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var searchListView: SearchListView!
     
     // MARK: Private
     private var viewModel:CharactersListViewModel!
@@ -43,7 +44,7 @@ class CharactersListViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.presenter?.viewDidAppear()
-       
+        
     }
     
     
@@ -58,12 +59,14 @@ class CharactersListViewController: BaseViewController {
     @IBAction func actionOrderByName(_ sender: Any) {
         self.emptyView.isHidden = true
         self.presenter?.onActionOrdenByName()
+        self.searchListView.cleanSearchbar()
         self.actionRefreshOrdenBy()
     }
     
     @IBAction func actionOrderByModified(_ sender: Any) {
         self.emptyView.isHidden = true
         self.presenter?.onActionOrdenByModified()
+        self.searchListView.cleanSearchbar()
         self.actionRefreshOrdenBy()
     }
     
@@ -84,6 +87,14 @@ extension CharactersListViewController: CharactersListView {
         self.ShowAlert(title: title, message: message)
         showEmptyView()
     }
+    
+    func resfreshTitleNavegationBar(title:String){
+        if title.isEmpty {
+            self.navigationItem.title = "characters"
+        } else {
+            self.navigationItem.title = title
+        }
+    }
 }
 // MARK: - Private methods
 private extension CharactersListViewController {
@@ -97,21 +108,17 @@ private extension CharactersListViewController {
     func configView() {
         onActionRefresh = true
         configTableView()
+        configSearchHeaderView()
     }
     
     func configTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: CharactersListViewCell.identifier , bundle: nil), forCellReuseIdentifier: CharactersListViewCell.identifier)
-        tableView.register(UINib(nibName: SearchHeaderListViewCell.identifier , bundle: nil), forCellReuseIdentifier: SearchHeaderListViewCell.identifier)
-        tableView.sectionHeaderHeight = 50
-//        configHeaderTableView()
     }
     
-    func configHeaderTableView(){
-        let headerTable = SearchHeaderListViewCell.instanceFromNib() as? SearchHeaderListViewCell
-        headerTable?.delegate = self
-        tableView.tableHeaderView = headerTable
+    func configSearchHeaderView(){
+        self.searchListView.delegate = self
         
     }
     
@@ -176,15 +183,9 @@ extension CharactersListViewController:UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerTable = SearchHeaderListViewCell.instanceFromNib() as? SearchHeaderListViewCell
-        headerTable?.delegate = self
-        return headerTable
-    }
-
 }
 
-extension CharactersListViewController:SearchHeaderListDelegate {
+extension CharactersListViewController:SearchListDelegate {
     
     func searchBarButtonClicked(text: String) {
         presenter?.actionSearchBarButtonClicked(text: text)

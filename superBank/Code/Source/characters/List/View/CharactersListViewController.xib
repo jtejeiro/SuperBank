@@ -12,6 +12,7 @@
                 <outlet property="emptyView" destination="82M-nz-1et" id="YsN-ic-cHy"/>
                 <outlet property="ordenByModifiedButton" destination="S3A-3X-K9J" id="bu5-E5-OAN"/>
                 <outlet property="ordenByNameButton" destination="I1o-CC-UB2" id="vql-fI-MuC"/>
+                <outlet property="searchListView" destination="lel-Ac-aGA" id="JtX-xq-5Nc"/>
                 <outlet property="tableView" destination="asd-AO-jya" id="BB5-5Q-qrm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,13 +23,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tY2-CM-cvh">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvX-Qo-Y0O">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="odY-s5-wST">
-                                    <rect key="frame" x="40" y="304" width="334" height="128"/>
+                                    <rect key="frame" x="40" y="282" width="334" height="128"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="bWi-zY-TX0"/>
                                     </constraints>
@@ -42,14 +43,21 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82M-nz-1et">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lel-Ac-aGA" customClass="SearchListView" customModule="superBank" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="V0I-E8-glg"/>
+                                    </constraints>
+                                </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asd-AO-jya">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <rect key="frame" x="0.0" y="50" width="414" height="802"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </tableView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyJ-3c-EgG">
-                                    <rect key="frame" x="147" y="821" width="120" height="35"/>
+                                    <rect key="frame" x="147" y="777" width="120" height="35"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cxK-tT-pA2">
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="35"/>
@@ -111,9 +119,12 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="asd-AO-jya" firstAttribute="top" secondItem="82M-nz-1et" secondAttribute="top" id="8ml-2T-Mwy"/>
                                 <constraint firstAttribute="bottom" secondItem="asd-AO-jya" secondAttribute="bottom" id="CtW-sq-b9e"/>
+                                <constraint firstItem="lel-Ac-aGA" firstAttribute="leading" secondItem="82M-nz-1et" secondAttribute="leading" id="DTg-QU-UBX"/>
+                                <constraint firstItem="lel-Ac-aGA" firstAttribute="top" secondItem="82M-nz-1et" secondAttribute="top" id="Wrs-Iw-2xc"/>
                                 <constraint firstItem="asd-AO-jya" firstAttribute="leading" secondItem="82M-nz-1et" secondAttribute="leading" id="dvU-pW-GDJ"/>
+                                <constraint firstAttribute="trailing" secondItem="lel-Ac-aGA" secondAttribute="trailing" id="dyJ-eL-va0"/>
+                                <constraint firstItem="asd-AO-jya" firstAttribute="top" secondItem="lel-Ac-aGA" secondAttribute="bottom" id="ete-W6-7im"/>
                                 <constraint firstAttribute="bottom" secondItem="SyJ-3c-EgG" secondAttribute="bottom" constant="40" id="iGt-ZZ-dl6"/>
                                 <constraint firstAttribute="trailing" secondItem="asd-AO-jya" secondAttribute="trailing" id="iaI-Hg-WTw"/>
                                 <constraint firstItem="SyJ-3c-EgG" firstAttribute="centerX" secondItem="82M-nz-1et" secondAttribute="centerX" id="nHf-KL-bHn"/>
@@ -138,7 +149,7 @@
                 <constraint firstItem="tY2-CM-cvh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="4EI-vg-K5a"/>
                 <constraint firstItem="tY2-CM-cvh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EnY-zM-hhg"/>
                 <constraint firstAttribute="bottom" secondItem="tY2-CM-cvh" secondAttribute="bottom" id="h5I-yy-ZHT"/>
-                <constraint firstItem="tY2-CM-cvh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kQA-nq-Yyp"/>
+                <constraint firstItem="tY2-CM-cvh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kQA-nq-Yyp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>

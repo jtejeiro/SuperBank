@@ -22,6 +22,9 @@
 		4686781A246AAD3E005BFF1F /* BasesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46867819246AAD3E005BFF1F /* BasesError.swift */; };
 		4686781D246AECC9005BFF1F /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4686781C246AECC9005BFF1F /* BaseRouter.swift */; };
 		46867826246B0219005BFF1F /* BasesPagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46867825246B0219005BFF1F /* BasesPagerModel.swift */; };
+		46ABF6DC246C9EFC003E41D0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF6DB246C9EFC003E41D0 /* UIView+Extension.swift */; };
+		46ABF6DE246CA076003E41D0 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABF6DD246CA076003E41D0 /* SearchListView.swift */; };
+		46ABF6E0246CA0B9003E41D0 /* SearchListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABF6DF246CA0B9003E41D0 /* SearchListView.xib */; };
 		46C2205624675AB000762FD5 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46C2205524675AB000762FD5 /* CryptoSwift */; };
 		46C2206624676E6100762FD5 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205E24676E6100762FD5 /* CharactersListViewController.swift */; };
 		46C2206724676E6100762FD5 /* CharactersListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */; };
@@ -44,8 +47,6 @@
 		46C220872468583D00762FD5 /* CharactersListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C220862468583D00762FD5 /* CharactersListResponse.swift */; };
 		46C2208924687FCB00762FD5 /* BasesMarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2208824687FCB00762FD5 /* BasesMarvelResponse.swift */; };
 		46C3C1422469572B00F3EDD8 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C3C1412469572B00F3EDD8 /* UIBarButtonItem+Extension.swift */; };
-		46CBE90F246BD9C7005329EB /* SearchHeaderListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CBE90D246BD9C7005329EB /* SearchHeaderListViewCell.swift */; };
-		46CBE910246BD9C7005329EB /* SearchHeaderListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46CBE90E246BD9C7005329EB /* SearchHeaderListViewCell.xib */; };
 		9274F1D61A5958AC7021363D /* Pods_superBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8655D8EF1409EAF488D6A65 /* Pods_superBankTests.framework */; };
 		CC0A7B155FD7A5AD278C3402 /* Pods_superBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 304F29E41AAD091DDC1599E8 /* Pods_superBank.framework */; };
 		DAD6BDC3F5C34DFCF51BFE73 /* Pods_superBank_superBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA4E0160EBFD3C6F725C3CD /* Pods_superBank_superBankUITests.framework */; };
@@ -95,6 +96,9 @@
 		46867819246AAD3E005BFF1F /* BasesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasesError.swift; sourceTree = "<group>"; };
 		4686781C246AECC9005BFF1F /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		46867825246B0219005BFF1F /* BasesPagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasesPagerModel.swift; sourceTree = "<group>"; };
+		46ABF6DB246C9EFC003E41D0 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		46ABF6DD246CA076003E41D0 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		46ABF6DF246CA0B9003E41D0 /* SearchListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListView.xib; sourceTree = "<group>"; };
 		46C2205E24676E6100762FD5 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		46C2205F24676E6100762FD5 /* CharactersListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListProtocols.swift; sourceTree = "<group>"; };
 		46C2206024676E6100762FD5 /* CharactersListPresenterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenterImpl.swift; sourceTree = "<group>"; };
@@ -116,8 +120,6 @@
 		46C220862468583D00762FD5 /* CharactersListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListResponse.swift; sourceTree = "<group>"; };
 		46C2208824687FCB00762FD5 /* BasesMarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasesMarvelResponse.swift; sourceTree = "<group>"; };
 		46C3C1412469572B00F3EDD8 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
-		46CBE90D246BD9C7005329EB /* SearchHeaderListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderListViewCell.swift; sourceTree = "<group>"; };
-		46CBE90E246BD9C7005329EB /* SearchHeaderListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeaderListViewCell.xib; sourceTree = "<group>"; };
 		76805481E6344F2448297F6E /* Pods-superBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-superBank.debug.xcconfig"; path = "Target Support Files/Pods-superBank/Pods-superBank.debug.xcconfig"; sourceTree = "<group>"; };
 		A8655D8EF1409EAF488D6A65 /* Pods_superBankTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_superBankTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B48CC329979C5C6451BFC44F /* Pods-superBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-superBankTests.debug.xcconfig"; path = "Target Support Files/Pods-superBankTests/Pods-superBankTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			children = (
 				46263F422469533100890B67 /* imageView+Extension.swift */,
 				46C3C1412469572B00F3EDD8 /* UIBarButtonItem+Extension.swift */,
+				46ABF6DB246C9EFC003E41D0 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -398,8 +401,8 @@
 			children = (
 				46C220802467EECB00762FD5 /* CharactersListViewCell.swift */,
 				46C220812467EECB00762FD5 /* CharactersListViewCell.xib */,
-				46CBE90D246BD9C7005329EB /* SearchHeaderListViewCell.swift */,
-				46CBE90E246BD9C7005329EB /* SearchHeaderListViewCell.xib */,
+				46ABF6DD246CA076003E41D0 /* SearchListView.swift */,
+				46ABF6DF246CA0B9003E41D0 /* SearchListView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -600,7 +603,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46CBE910246BD9C7005329EB /* SearchHeaderListViewCell.xib in Resources */,
+				46ABF6E0246CA0B9003E41D0 /* SearchListView.xib in Resources */,
 				46715F632465C50F0005E76F /* LaunchScreen.storyboard in Resources */,
 				46715F602465C50F0005E76F /* Assets.xcassets in Resources */,
 				46C2207D246772AF00762FD5 /* CharactersDetailsViewController.xib in Resources */,
@@ -757,7 +760,6 @@
 				462FF2982465D9F300F28560 /* NetworkConstants.swift in Sources */,
 				46C2206C24676E6100762FD5 /* CharactersListConfigurator.swift in Sources */,
 				46C2206924676E6100762FD5 /* CharactersListRouterImpl.swift in Sources */,
-				46CBE90F246BD9C7005329EB /* SearchHeaderListViewCell.swift in Sources */,
 				46867826246B0219005BFF1F /* BasesPagerModel.swift in Sources */,
 				46C2206824676E6100762FD5 /* CharactersListPresenterImpl.swift in Sources */,
 				46C22078246772AF00762FD5 /* CharactersDetailsPresenterImpl.swift in Sources */,
@@ -769,6 +771,7 @@
 				46C3C1422469572B00F3EDD8 /* UIBarButtonItem+Extension.swift in Sources */,
 				46C22079246772AF00762FD5 /* CharactersDetailsRouterImpl.swift in Sources */,
 				46C220822467EECB00762FD5 /* CharactersListViewCell.swift in Sources */,
+				46ABF6DC246C9EFC003E41D0 /* UIView+Extension.swift in Sources */,
 				462FF2842465CCC400F28560 /* BaseViewController.swift in Sources */,
 				46C2206624676E6100762FD5 /* CharactersListViewController.swift in Sources */,
 				46263F432469533100890B67 /* imageView+Extension.swift in Sources */,
@@ -776,6 +779,7 @@
 				46493CD824674C83003FC8B1 /* BaseConfigurator.swift in Sources */,
 				46715F572465C50E0005E76F /* AppDelegate.swift in Sources */,
 				46C22077246772AF00762FD5 /* CharactersDetailsProtocols.swift in Sources */,
+				46ABF6DE246CA076003E41D0 /* SearchListView.swift in Sources */,
 				46C2206A24676E6100762FD5 /* CharactersListInteractorImpl.swift in Sources */,
 				46715F592465C50E0005E76F /* SceneDelegate.swift in Sources */,
 				46C2207B246772AF00762FD5 /* CharactersDetailsViewModel.swift in Sources */,

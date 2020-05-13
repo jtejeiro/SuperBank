@@ -17,12 +17,12 @@ class CharactersListViewCell: UITableViewCell {
     @IBOutlet weak var CharactersLabel: UILabel!
     @IBOutlet weak var loadingActivity: UIActivityIndicatorView!
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
