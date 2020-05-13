@@ -11,8 +11,8 @@ import Foundation
 
 struct CharactersDetailsViewModel {
     let charactersDetails: CharactersListResponse
-    let urlImg:String
-    let listLink:[URLElement]
+    var urlImg:String = String()
+    var listLink:[URLElement] = []
     
     
     

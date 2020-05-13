@@ -22,8 +22,8 @@ enum OrdenByType: String, CodingKey {
 }
 
 struct CharactersListViewModel {
-    var charactersList:[CharactersListResponse]
-    let pagerTotal:Int
+    var charactersList:[CharactersListResponse] = [CharactersListResponse]()
+    var pagerTotal:Int = 0
     
     
     static func mapperToCharactersListResponse(basesPager:BasesPagerModel) -> CharactersListViewModel {

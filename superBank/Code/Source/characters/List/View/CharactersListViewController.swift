@@ -20,6 +20,7 @@ class CharactersListViewController: BaseViewController {
     @IBOutlet private var tableView:UITableView!
     @IBOutlet private var ordenByNameButton:UIButton!
     @IBOutlet private var ordenByModifiedButton:UIButton!
+    @IBOutlet weak var emptyView: UIView!
     
     // MARK: Private
     private var viewModel:CharactersListViewModel!
@@ -42,6 +43,7 @@ class CharactersListViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.presenter?.viewDidAppear()
+        configView()
     }
     
     
@@ -54,11 +56,13 @@ class CharactersListViewController: BaseViewController {
     // MARK: IBActions
     
     @IBAction func actionOrderByName(_ sender: Any) {
+        self.emptyView.isHidden = false
         self.presenter?.onActionOrdenByName()
         self.actionRefreshOrdenBy()
     }
     
     @IBAction func actionOrderByModified(_ sender: Any) {
+        self.emptyView.isHidden = false
         self.presenter?.onActionOrdenByModified()
         self.actionRefreshOrdenBy()
     }
@@ -70,12 +74,14 @@ extension CharactersListViewController: CharactersListView {
     
     func showCharacters(CharactersVM:CharactersListViewModel){
         self.viewModel = CharactersVM
-        configView()
+        showEmptyView()
         tableView.reloadData()
+        onActionRefresh = true
     }
     
     func showAlertError(title:String,message:String){
         self.ShowAlert(title: title, message: message)
+        showEmptyView()
     }
 }
 // MARK: - Private methods
@@ -84,6 +90,7 @@ private extension CharactersListViewController {
     // MARK: - Setup
     func setupInit() {
         self.navigationItem.title = "characters"
+        self.emptyView.isHidden = false
     }
     
     func configView() {
@@ -114,6 +121,13 @@ private extension CharactersListViewController {
         }
     }
     
+    func showEmptyView(){
+        if viewModel.charactersList.count == 0{
+            self.emptyView.isHidden = false
+        }else {
+            self.emptyView.isHidden = true
+        }
+    }
     
 }
 extension CharactersListViewController:UITableViewDelegate, UITableViewDataSource {
