@@ -48,9 +48,11 @@ extension SearchListView: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         delegate?.searchBarButtonClicked(text: searchBar.text ?? "")
+        self.searchBar.endEditing(true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        delegate?.searchBarButtonClicked(text: searchBar.text ?? "")
+        delegate?.searchBarButtonClicked(text: searchText)
     }
+    
 }

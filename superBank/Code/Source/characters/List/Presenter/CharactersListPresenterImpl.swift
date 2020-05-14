@@ -21,7 +21,7 @@ class CharactersListPresenterImpl {
     // MARK: - Manager
     
     // MARK: - Var
-    var CharactersListVM : CharactersListViewModel!
+    var charactersListVM : CharactersListViewModel!
     var firstCharactersList:Bool = true
     var offsetValue:Int = 0
     var limitValue:Int = 20
@@ -55,12 +55,12 @@ extension CharactersListPresenterImpl: CharactersListPresenter {
     }
     
     func didSelectRowAt(index:Int) {
-        let charactersID = self.CharactersListVM.charactersList[index].id
+        let charactersID = self.charactersListVM.charactersList[index].id
         router?.goCharactersDeteils(id: String(charactersID))
     }
     
     func moreRefreshCharactersList() {
-        if  offsetValue < self.CharactersListVM.pagerTotal {
+        if  offsetValue < self.charactersListVM.pagerTotal {
             offsetValue = offsetValue + limitValue
             refreshCharactersList()
         }
@@ -106,13 +106,13 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
             
             if firstCharactersList {
                 firstCharactersList = false
-                self.CharactersListVM = CharactersListViewModel.mapperToCharactersListResponse(basesPager: charactersListResponse)
+                self.charactersListVM = CharactersListViewModel.mapperToCharactersListResponse(basesPager: charactersListResponse)
             }else{
-                self.CharactersListVM.charactersListMore(list: data.results)
+                self.charactersListVM.charactersListMore(list: data.results)
             }
            
             
-            view?.showCharacters(CharactersVM: self.CharactersListVM)
+            view?.showCharacters(CharactersVM: self.charactersListVM)
            
             
         case .failure(let error):
@@ -153,7 +153,7 @@ private extension CharactersListPresenterImpl {
     
     func resfreshOrdenBy(){
         firstCharactersList = true
-        self.CharactersListVM.cleanCharactersList()
+        self.charactersListVM.cleanCharactersList()
         offsetValue = 0
         nameStartsWithValue = ""
         refreshCharactersList()
@@ -162,7 +162,7 @@ private extension CharactersListPresenterImpl {
     
     func resfreshnameStartsWith(){
         firstCharactersList = true
-        self.CharactersListVM.cleanCharactersList()
+        self.charactersListVM.cleanCharactersList()
         offsetValue = 0
         orderByValue = ""
         refreshCharactersList()
