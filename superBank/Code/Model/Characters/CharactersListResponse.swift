@@ -60,6 +60,10 @@ struct StoriesItem: Codable {
 struct Thumbnail: Codable {
     var path: String
     var thumbnailExtension: String
+    
+    var getTThumbnailUrl:String {
+        return path + "." + thumbnailExtension
+    }
 
     enum CodingKeys: String, CodingKey {
         case path

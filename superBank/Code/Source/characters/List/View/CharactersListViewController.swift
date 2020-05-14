@@ -163,7 +163,7 @@ extension CharactersListViewController:UITableViewDelegate, UITableViewDataSourc
         }
         if !viewModel.charactersList.isEmpty {
             let type:CharactersListResponse = viewModel.charactersList[indexPath.row]
-            cell.setupCell(name: type.name, thumbnail: type.thumbnail)
+            cell.setupCell(name: type.name, thumbnail: type.thumbnail.getTThumbnailUrl)
         }else {
             cell.setupCell(name: "" , thumbnail: nil)
         }

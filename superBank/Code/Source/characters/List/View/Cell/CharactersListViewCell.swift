@@ -27,10 +27,10 @@ class CharactersListViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCell(name:String,thumbnail:Thumbnail?){
+    func setupCell(name:String,thumbnail:String?){
         self.CharactersLabel.text = name
         if thumbnail != nil {
-            changerUrlImg(urlimg: thumbnail ?? Thumbnail(path: "", thumbnailExtension: ""))
+            changerUrlImg(urlimg: thumbnail ?? "" )
         }else {
             self.charactersImageView.image = UIImage(named: "MarvelDefault")
             self.charactersImageView.contentMode = .scaleAspectFill
@@ -40,11 +40,9 @@ class CharactersListViewCell: UITableViewCell {
 }
 extension CharactersListViewCell {
     
-    func changerUrlImg(urlimg:Thumbnail){
+    func changerUrlImg(urlimg:String){
         self.loadingActivity.startAnimating()
-        
-        let urlString:String = urlimg.path + "." + urlimg.thumbnailExtension
-        let urlImgLink = URL(string: urlString)
+        let urlImgLink = URL(string: urlimg)
         self.charactersImageView.contentMode = .scaleAspectFill
         self.charactersImageView.sd_setImage(with: urlImgLink, placeholderImage: UIImage(named: "MarvelDefault"), completed: { image, error, cacheType, imageURL in
             self.loadingActivity.stopAnimating()
