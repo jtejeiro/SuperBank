@@ -40,6 +40,9 @@ class SearchListView: UIView, XibInstantiatable {
         searchBar.text = ""
     }
     
+    func closekeyboard() {
+          self.searchBar.endEditing(true)
+    }
 }
 
 

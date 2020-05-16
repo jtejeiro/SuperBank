@@ -183,6 +183,10 @@ extension CharactersListViewController:UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.searchListView.closekeyboard()
+    }
+    
 }
 
 extension CharactersListViewController:SearchListDelegate {
