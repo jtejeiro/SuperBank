@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - View Protocol
 // Define CharactersListView
-protocol CharactersListView: class {
+protocol CharactersListView: AnyObject {
     var presenter: CharactersListPresenter? { get set }
     func showCharacters(CharactersVM:CharactersListViewModel)
     func showAlertError(title:String,message:String)
@@ -22,7 +22,7 @@ protocol CharactersListView: class {
 // MARK: - Presenter
 
 
-protocol CharactersListPresenter: class {
+protocol CharactersListPresenter: AnyObject {
     
     var view: CharactersListView? { get set }
     var interactor: CharactersListInteractor? { get set }
@@ -43,12 +43,12 @@ protocol CharactersListPresenter: class {
 
 // MARK: - Interactor
 
-protocol CharactersListInteractorCallback: class {
+protocol CharactersListInteractorCallback: AnyObject {
     func fetchedCharactersList(result: Result<BasesPagerModel, Error>)
     func fetchedTypeError(baseError:BasesError)
 }
 
-protocol CharactersListInteractor: class {
+protocol CharactersListInteractor: AnyObject {
     
     var presenter: CharactersListInteractorCallback? { get set }
     func fetchCharactersList(parameters:[String:Any])
@@ -56,7 +56,7 @@ protocol CharactersListInteractor: class {
 }
 
 // MARK: - Router
-protocol CharactersListRouter: class {
+protocol CharactersListRouter: AnyObject {
     func goBack()
     func goCharactersDeteils(id:String)
 }

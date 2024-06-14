@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let baseController = BaseConfigurator().viewController
         let navController = UINavigationController(rootViewController: baseController)
-        BaseConfigurator.ConfigGlobalApareance()
+        navController.navigationBar.standardAppearance = BaseConfigurator.ConfigGlobalApareance()
+        navController.navigationBar.scrollEdgeAppearance = navController.navigationBar.standardAppearance
+        
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController

@@ -16,7 +16,7 @@ extension UIImageView {
         
         self.image = nil
         
-        _ = URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             
             guard let data = data, error == nil else {
                 // check for fundamental networking error

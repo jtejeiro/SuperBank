@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class CharactersListPresenterImpl {
+class CharactersListPresenterImpl{
     
     
     // MARK: - Properties
@@ -21,13 +21,10 @@ class CharactersListPresenterImpl {
     // MARK: - Manager
     
     // MARK: - Var
-    var charactersListVM : CharactersListViewModel!
+    var charactersListVM : CharactersListViewModel?
     var firstCharactersList:Bool = true
     var offsetValue:Int = 0
     var limitValue:Int = 20
-    
-    var orderByValue:String = ""
-    var nameStartsWithValue:String = ""
     
     // MARK: - Init
     init() {
@@ -55,42 +52,30 @@ extension CharactersListPresenterImpl: CharactersListPresenter {
     }
     
     func didSelectRowAt(index:Int) {
-        let charactersID = self.charactersListVM.charactersList[index].id
+        if  let charactersID = self.charactersListVM?.charactersList[index].id {
         router?.goCharactersDeteils(id: String(charactersID))
+        }
     }
     
     func moreRefreshCharactersList() {
-        if  offsetValue < self.charactersListVM.pagerTotal {
-            offsetValue = offsetValue + limitValue
+        if  offsetValue < self.charactersListVM?.pagerTotal ?? 0{
+            charactersListVM?.moreCharactersList()
             refreshCharactersList()
         }
     }
     
     func onActionOrdenByName() {
-        if orderByValue.isEmpty{
-            orderByValue = OrdenByType.nameZA.rawValue
-        }else if orderByValue == OrdenByType.nameZA.rawValue {
-            orderByValue = OrdenByType.nameAZ.rawValue
-        }else {
-            orderByValue = OrdenByType.nameZA.rawValue
-        }
-       
+        self.charactersListVM?.setOrdenByName()
         resfreshOrdenBy()
     }
     
     func onActionOrdenByModified() {
-        if orderByValue.isEmpty{
-            orderByValue = OrdenByType.modifiedTop.rawValue
-        }else if orderByValue == OrdenByType.modifiedTop.rawValue {
-            orderByValue = OrdenByType.modifiedBottom.rawValue
-        }else {
-            orderByValue = OrdenByType.modifiedTop.rawValue
-        }
+        self.charactersListVM?.setOrdenByModified()
         resfreshOrdenBy()
     }
 
     func actionSearchBarButtonClicked(text: String) {
-        nameStartsWithValue = text
+        charactersListVM?.SetNameStartsWithValue(text: text)
         resfreshnameStartsWith()
         view?.resfreshTitleNavegationBar(title: text)
     }
@@ -102,18 +87,14 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
     func fetchedCharactersList(result: Result<BasesPagerModel, Error>) {
         switch result {
         case .success(let data):
-            let charactersListResponse = data
-            
-            if firstCharactersList {
-                firstCharactersList = false
-                self.charactersListVM = CharactersListViewModel.mapperToCharactersListResponse(basesPager: charactersListResponse)
-            }else{
-                self.charactersListVM.charactersListMore(list: data.results)
-            }
-           
-            
-            view?.showCharacters(CharactersVM: self.charactersListVM)
-           
+             let charactersListResponse:BasesPagerModel = data
+                if firstCharactersList {
+                    firstCharactersList = false
+                    self.charactersListVM = CharactersListViewModel.mapperToCharactersListResponse(basesPager: charactersListResponse)
+                }else{
+                    self.charactersListVM?.charactersListMore(list: data.results)
+                }
+                view?.showCharacters(CharactersVM: self.charactersListVM!)
             
         case .failure(let error):
             print(error)
@@ -121,21 +102,7 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
         }
         
     }
-    
-    func getListPagerParameters() -> [String:Any] {
-        var listParameter:[String:Any] = [pagerParamerterKey.limit.rawValue:limitValue,
-        pagerParamerterKey.offset.rawValue:offsetValue]
-        
-        if !orderByValue.isEmpty {
-            listParameter[pagerParamerterKey.orderBy.rawValue] = orderByValue
-        }
-        
-        if !nameStartsWithValue.isEmpty {
-            listParameter[pagerParamerterKey.nameStartsWith.rawValue] = nameStartsWithValue
-        }
-        
-        return listParameter
-    }
+  
     
     func fetchedTypeError(baseError:BasesError){
         view?.showAlertError(title: baseError.code, message: baseError.message)
@@ -148,23 +115,25 @@ extension CharactersListPresenterImpl: CharactersListInteractorCallback {
 private extension CharactersListPresenterImpl {
     
     func refreshCharactersList(){
-        interactor?.fetchCharactersList(parameters: getListPagerParameters())
+        let paramerters:[String:Any] = charactersListVM?.getListPagerParameters() ?? [pagerParamerterKey.limit.rawValue:limitValue,
+            pagerParamerterKey.offset.rawValue:offsetValue]
+        interactor?.fetchCharactersList(parameters: paramerters)
     }
     
     func resfreshOrdenBy(){
         firstCharactersList = true
-        self.charactersListVM.cleanCharactersList()
-        offsetValue = 0
-        nameStartsWithValue = ""
+        self.charactersListVM?.cleanCharactersList()
+        self.charactersListVM?.cleanOffsetValue()
+        self.charactersListVM?.cleanNameStartsWithValue()
         refreshCharactersList()
-        view?.resfreshTitleNavegationBar(title: nameStartsWithValue)
+        view?.resfreshTitleNavegationBar(title:  self.charactersListVM?.nameStartsWithValue ?? "")
     }
     
     func resfreshnameStartsWith(){
         firstCharactersList = true
-        self.charactersListVM.cleanCharactersList()
-        offsetValue = 0
-        orderByValue = ""
+        self.charactersListVM?.cleanCharactersList()
+        self.charactersListVM?.cleanOffsetValue()
+        self.charactersListVM?.cleanOrderByValuee()
         refreshCharactersList()
     }
 }

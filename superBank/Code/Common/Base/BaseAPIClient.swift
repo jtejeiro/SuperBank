@@ -16,10 +16,10 @@ protocol BaseAPIClientProtocol {
 
 class BaseAPIClient:BaseAPIClientProtocol {
     
-    private let timestampKey: String = "ts"
-    private let timestampValue: String = "1234"
-    private let hashKey: String = "hash"
-    private let apikey: String = "apikey"
+    private let KtimestampKey: String = "ts"
+    private let KtimestampValue: String = "1234"
+    private let KhashKey: String = "hash"
+    private let Kapikey: String = "apikey"
     private let apiKeyValue: String = NetworkConstants.shared.publicKey
     private let privateKeyValue: String = NetworkConstants.shared.privateKey
     
@@ -34,11 +34,11 @@ class BaseAPIClient:BaseAPIClientProtocol {
        }
     
     private var hashKeyValue : String {
-        return (timestampValue + privateKeyValue + apiKeyValue).md5()
+        return (KtimestampValue + privateKeyValue + apiKeyValue).md5()
     }
     
     private var parametersConection:[ String : Any] {
-        return [timestampKey:timestampValue,apikey:apiKeyValue,hashKey:hashKeyValue]
+        return [KtimestampKey:KtimestampValue,Kapikey:apiKeyValue,KhashKey:hashKeyValue]
     }
     
     

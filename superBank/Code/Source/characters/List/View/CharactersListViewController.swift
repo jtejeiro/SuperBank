@@ -24,7 +24,7 @@ class CharactersListViewController: BaseViewController {
     @IBOutlet weak var searchListView: SearchListView!
     
     // MARK: Private
-    private var viewModel:CharactersListViewModel!
+    @Published var viewModel:CharactersListViewModel!
     var onActionRefresh:Bool = false
     
     

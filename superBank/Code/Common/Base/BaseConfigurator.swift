@@ -21,11 +21,19 @@ class BaseConfigurator {
     return view
     }
     
-    static func ConfigGlobalApareance(){
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().barTintColor = .red
+    static func ConfigGlobalApareance() -> UINavigationBarAppearance{
+        //        UINavigationBar.appearance().isTranslucent = true
+        //        UINavigationBar.appearance().barTintColor = .red
+        //
+        //        UINavigationBar.appearance().backgroundColor = .red
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .red
+        appearance.shadowColor = .clear
         UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        return appearance
     }
 
     

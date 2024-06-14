@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - View Protocol
 // Define CharactersDetailsView
-protocol CharactersDetailsView: class {
+protocol CharactersDetailsView: AnyObject {
     
     var presenter: CharactersDetailsPresenter? { get set }
     func showCharacters(CharactersVM:CharactersDetailsViewModel)
@@ -22,7 +22,7 @@ protocol CharactersDetailsView: class {
 // MARK: - Presenter
 
 
-protocol CharactersDetailsPresenter: class {
+protocol CharactersDetailsPresenter: AnyObject {
     
     var view: CharactersDetailsView? { get set }
     var interactor: CharactersDetailsInteractor? { get set }
@@ -38,12 +38,12 @@ protocol CharactersDetailsPresenter: class {
 
 // MARK: - Interactor
 
-protocol CharactersDetailsInteractorCallback: class {
+protocol CharactersDetailsInteractorCallback: AnyObject {
      func fetchedCharactersDetails(result: Result<[CharactersListResponse], Error>)
      func fetchedTypeError(baseError:BasesError)
 }
 
-protocol CharactersDetailsInteractor: class {
+protocol CharactersDetailsInteractor: AnyObject {
     
     var presenter: CharactersDetailsInteractorCallback? { get set }
     func fetchCharactersDetails()
@@ -51,7 +51,7 @@ protocol CharactersDetailsInteractor: class {
 }
 
 // MARK: - Router
-protocol CharactersDetailsRouter: class {
+protocol CharactersDetailsRouter: AnyObject {
     func goBack()
     func goOpenWeb(urlString:String)
     func goShowWebViewController(title:String, urlString:String)
